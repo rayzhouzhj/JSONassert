@@ -44,6 +44,7 @@ public abstract class AbstractComparator implements JSONComparator {
      *
      * @param expected Expected JSONObject
      * @param actual   JSONObject to compare
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @throws JSONException JSON parsing error
      */
     @Override
@@ -58,6 +59,7 @@ public abstract class AbstractComparator implements JSONComparator {
      *
      * @param expected Expected JSONArray
      * @param actual   JSONArray to compare
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @throws JSONException JSON parsing error
      */
     @Override

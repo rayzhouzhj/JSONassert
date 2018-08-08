@@ -41,6 +41,7 @@ public final class JSONCompare {
      * the comparison.
      * @param expectedStr Expected JSON string
      * @param actualStr JSON string to compare
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param comparator Comparator to use
      * @return result of the comparison
      * @throws JSONException JSON parsing error
@@ -72,6 +73,7 @@ public final class JSONCompare {
      * the comparison.
      * @param expected expected json object
      * @param actual actual json object
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param comparator comparator to use
      * @return result of the comparison
      * @throws JSONException JSON parsing error
@@ -86,6 +88,7 @@ public final class JSONCompare {
      * the comparison.
      * @param expected expected json array
      * @param actual actual json array
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param comparator comparator to use
      * @return result of the comparison
      * @throws JSONException JSON parsing error
@@ -118,6 +121,7 @@ public final class JSONCompare {
      *
      * @param expectedStr Expected JSON string
      * @param actualStr   JSON string to compare
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param mode        Defines comparison behavior
      * @return result of the comparison
      * @throws JSONException JSON parsing error
@@ -132,6 +136,7 @@ public final class JSONCompare {
      *
      * @param expected Expected JSONObject
      * @param actual   JSONObject to compare
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param mode     Defines comparison behavior
      * @return result of the comparison
      * @throws JSONException JSON parsing error
@@ -147,6 +152,7 @@ public final class JSONCompare {
      *
      * @param expected Expected JSONArray
      * @param actual   JSONArray to compare
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param mode     Defines comparison behavior
      * @return result of the comparison
      * @throws JSONException JSON parsing error

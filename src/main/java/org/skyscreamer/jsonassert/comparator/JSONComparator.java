@@ -34,6 +34,7 @@ public interface JSONComparator {
      *
      * @param expected the expected JSON object
      * @param actual   the actual JSON object
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @return the result of the comparison
      * @throws JSONException JSON parsing error
      */
@@ -46,6 +47,7 @@ public interface JSONComparator {
      * @param prefix   the path in the json where the comparison happens
      * @param expected the expected JSON object
      * @param actual   the actual JSON object
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param result   stores the actual state of the comparison result
      * @throws JSONException JSON parsing error
      */
@@ -58,6 +60,7 @@ public interface JSONComparator {
      * @param prefix        the path in the json where the comparison happens
      * @param expectedValue the expected value
      * @param actualValue   the actual value
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param result        stores the actual state of the comparison result
      * @throws JSONException JSON parsing error
      */
@@ -68,6 +71,7 @@ public interface JSONComparator {
      *
      * @param expected the expected JSON array
      * @param actual   the actual JSON array
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @return the result of the comparison
      * @throws JSONException JSON parsing error
      */
@@ -80,6 +84,7 @@ public interface JSONComparator {
      * @param prefix   the path in the json where the comparison happens
      * @param expected the expected JSON array
      * @param actual   the actual JSON array
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param result   stores the actual state of the comparison result
      * @throws JSONException JSON parsing error
      */
