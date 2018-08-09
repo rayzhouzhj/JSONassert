@@ -14,6 +14,8 @@
 
 package org.skyscreamer.jsonassert.comparator;
 
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,20 +34,11 @@ public interface JSONComparator {
      *
      * @param expected the expected JSON object
      * @param actual   the actual JSON object
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @return the result of the comparison
      * @throws JSONException JSON parsing error
      */
-    JSONCompareResult compareJSON(JSONObject expected, JSONObject actual) throws JSONException;
-
-    /**
-     * Compares two {@link JSONArray}s and returns the result of the comparison in a {@link JSONCompareResult} object.
-     *
-     * @param expected the expected JSON array
-     * @param actual   the actual JSON array
-     * @return the result of the comparison
-     * @throws JSONException JSON parsing error
-     */
-    JSONCompareResult compareJSON(JSONArray expected, JSONArray actual) throws JSONException;
+    JSONCompareResult compareJSON(JSONObject expected, JSONObject actual, List<String> keysToIgnore) throws JSONException;
 
     /**
      * Compares two {@link JSONObject}s on the provided path represented by {@code prefix} and
@@ -54,10 +47,11 @@ public interface JSONComparator {
      * @param prefix   the path in the json where the comparison happens
      * @param expected the expected JSON object
      * @param actual   the actual JSON object
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param result   stores the actual state of the comparison result
      * @throws JSONException JSON parsing error
      */
-    void compareJSON(String prefix, JSONObject expected, JSONObject actual, JSONCompareResult result) throws JSONException;
+    void compareJSON(String prefix, JSONObject expected, JSONObject actual, List<String> keysToIgnore, JSONCompareResult result) throws JSONException;
 
     /**
      * Compares two {@link Object}s on the provided path represented by {@code prefix} and
@@ -66,10 +60,22 @@ public interface JSONComparator {
      * @param prefix        the path in the json where the comparison happens
      * @param expectedValue the expected value
      * @param actualValue   the actual value
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param result        stores the actual state of the comparison result
      * @throws JSONException JSON parsing error
      */
-    void compareValues(String prefix, Object expectedValue, Object actualValue, JSONCompareResult result) throws JSONException;
+    void compareValues(String prefix, Object expectedValue, Object actualValue, List<String> keysToIgnore, JSONCompareResult result) throws JSONException;
+
+    /**
+     * Compares two {@link JSONArray}s and returns the result of the comparison in a {@link JSONCompareResult} object.
+     *
+     * @param expected the expected JSON array
+     * @param actual   the actual JSON array
+     * @param keysToIgnore   keys need to be ignored while comparison
+     * @return the result of the comparison
+     * @throws JSONException JSON parsing error
+     */
+    JSONCompareResult compareJSONArray(JSONArray expected, JSONArray actual, List<String> keysToIgnore) throws JSONException;
 
     /**
      * Compares two {@link JSONArray}s on the provided path represented by {@code prefix} and
@@ -78,8 +84,9 @@ public interface JSONComparator {
      * @param prefix   the path in the json where the comparison happens
      * @param expected the expected JSON array
      * @param actual   the actual JSON array
+     * @param keysToIgnore   keys need to be ignored while comparison
      * @param result   stores the actual state of the comparison result
      * @throws JSONException JSON parsing error
      */
-    void compareJSONArray(String prefix, JSONArray expected, JSONArray actual, JSONCompareResult result) throws JSONException;
+    void compareJSONArray(String prefix, JSONArray expected, JSONArray actual, List<String> keysToIgnore, JSONCompareResult result) throws JSONException;
 }
