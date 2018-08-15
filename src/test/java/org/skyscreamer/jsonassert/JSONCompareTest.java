@@ -46,7 +46,7 @@ public class JSONCompareTest {
     @Test
     public void reportsArrayMissingExpectedElement() throws JSONException {
         JSONCompareResult result = compareJSON("[4]", "[7]", null, LENIENT);
-        assertThat(result, failsWithMessage(equalTo("[]\nExpected: 4\n     but none found\n ; []\nUnexpected: 7\n")));
+        assertThat(result, failsWithMessage(equalTo("[]\nExpected: 4\n     but none found\n ;\n[]\nUnexpected: 7\n")));
         assertEquals(result.getFieldMissing().size(), 1);
         assertEquals(result.getFieldUnexpected().size(), 1);
     }
@@ -105,14 +105,14 @@ public class JSONCompareTest {
     @Test
     public void reportsWrongSimpleValueCountInUnorderedArray() throws JSONException {
         JSONCompareResult result = compareJSON("[5, 5]", "[5, 7]", null, LENIENT);
-        assertThat(result, failsWithMessage(equalTo("[]: Expected 2 occurrence(s) of 5 but got 1 occurrence(s) ; []\nUnexpected: 7\n")));
+        assertThat(result, failsWithMessage(equalTo("[]: Expected 2 occurrence(s) of 5 but got 1 occurrence(s) ;\n[]\nUnexpected: 7\n")));
         assertEquals(result.getFieldUnexpected().size(), 1);
     }
 
     @Test
     public void reportsMissingJSONObjectWithUniqueKeyInUnorderedArray() throws JSONException {
         JSONCompareResult result = compareJSON("[{\"id\" : 3}]", "[{\"id\" : 5}]", null, LENIENT);
-        assertThat(result, failsWithMessage(equalTo("[id=3]\nExpected: a JSON object\n     but none found\n ; " +
+        assertThat(result, failsWithMessage(equalTo("[id=3]\nExpected: a JSON object\n     but none found\n ;\n" +
                 "[id=5]\nUnexpected: a JSON object\n")));
         assertEquals(result.getFieldMissing().size(), 1);
         assertEquals(result.getFieldUnexpected().size(), 1);
