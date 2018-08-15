@@ -72,17 +72,12 @@ public class JSONIgnoreFieldTest {
 		List<String> keysToIgnore = new ArrayList<String>();
 		keysToIgnore.add("outer.inner.value");
 		
-		System.out.println(deepExpected);
-		System.out.println(deepActual);
-		
 		JSONAssert.assertEquals(deepExpected, deepActual, keysToIgnore, true);
 	}
 	
 	@Test
 	public void testIgnoreWithinArray() throws JSONException {
-		System.out.println(arrayActual);
-		System.out.println(arrayExpected);
-		
+
 		List<String> keysToIgnore = new ArrayList<String>();
 		keysToIgnore.add("foo.array[*].ignore1");
 		keysToIgnore.add("foo.array[0].ignore2");

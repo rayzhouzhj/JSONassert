@@ -161,7 +161,7 @@ public class JSONCompareResult {
         if (_message.length() == 0) {
             _message.append(message);
         } else {
-            _message.append(" ; ").append(message);
+            _message.append(" ;\n").append(message);
         }
     }
 

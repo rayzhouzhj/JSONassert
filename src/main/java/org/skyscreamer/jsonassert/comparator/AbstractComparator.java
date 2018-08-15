@@ -98,15 +98,18 @@ public abstract class AbstractComparator implements JSONComparator {
                 	continue;
                 }
                 
-               if( keysToIgnore.stream().filter(k -> {
-                	if(k.contains("[*]")) {
+                String tempKey = keyPath.replaceAll("\\[[0-9]+\\]", "\\[\\*\\]");
+               if( keysToIgnore.stream().anyMatch(k -> {
+                	if(tempKey.contains(k))
+                	{
                 		return true;
                 	}
-                	else {
+                	else 
+                	{
                 		return false;
                 	}
-                	
-                }).collect(Collectors.toList()).contains(keyPath.replaceAll("\\[[0-9]+\\]", "\\[\\*\\]"))) {
+                })) 
+               {
                 	System.out.println("[JSONComparator] Ignore key: " + keyPath);
                 	
                 	continue;
